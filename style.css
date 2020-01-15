@@ -1,0 +1,19 @@
+.card {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: teal;
+  text-align: center;
+  padding: 20px;
+  width: 100%;
+}
+
+#length {
+  display: inline-block;
+  width: 100px;
+  border-radius: 4px;
+}
+
+button {
+  width: 25%;
+  border-radius: 4px;
+}
