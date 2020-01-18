@@ -29,7 +29,7 @@ var upper = [
   "Z"
 ];
 
-var number = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+var number = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 var symbols = ["!", "@", "#", "$", "%", "^", "&", "*", "?", "-", "_"];
 
@@ -62,70 +62,88 @@ var lower = [
   "z"
 ];
 
-// characters[(i = 3)];
+var pswdstring = "";
+
+// Create universal variables
+
 var letter;
 var getNumber;
 var getElement;
 var smallLetter;
 var getSymbol;
 
+// Create functions
+
+// Function for randomly pulling an uppercase letter
 function makeLetter() {
-  letter = Math.floor(Math.random() * (25 - 0) + 0);
+  var randoindex = Math.floor(Math.random() * (25 - 0) + 0);
+  letter = upper[randoindex];
   console.log(letter);
   console.log(upper[letter]);
   // return letter;
 }
 
-// makeLetter();
-
+// Function for randomly pulling a random number from 0-9
 function makeNumber() {
-  getNumber = Math.floor(Math.random() * (9 - 0) + 0);
+  var numbers = Math.floor(Math.random() * (9 - 0) + 0);
+  getNumber = number[numbers];
   console.log(getNumber);
   console.log(number[getNumber]);
 
-  // return getNumber;
+  // Function for randomly pulling a lowercase letter
+  function makeSmallLetter() {
+    var small = Math.floor(Math.random() * (25 - 0) + 0);
+    smallLetter = lower[small];
+    console.log(smallLetter);
+    console.log(lower[smallLetter]);
+  }
+
+  // Function for randomly pulling symbol
+  function makeSymbol() {
+    var chars = Math.floor(Math.random() * (10 - 0) + 0);
+    getSymbol = symbols[chars];
+    console.log(getSymbol);
+    console.log(symbols[getSymbol]);
+  }
+
+  // Function for randomly pulling a mix of the variable between 8 and 128
+  function chooseElement() {
+    getElement = Math.floor(Math.random() * (32 - 2) + 0);
+    console.log(getElement);
+    console.log(getElement);
+    // return getElement;
+  }
+
+  chooseElement();
+
+  // Create password for loop with the functions created above
+  for (var i = 0; i < getElement; i++) {
+    makeLetter();
+    makeNumber();
+    makeSmallLetter();
+    makeSymbol();
+    pswdstring += letter;
+    pswdstring += getNumber;
+    pswdstring += smallLetter;
+    pswdstring += getSymbol;
+  }
+
+  //Create the array
+
+  // Create the prototype to push
+
+  // Create an array that will push the values from lines 17 and 26 to the end of an array
+  // once we have the 4 requirements,i need to join the arrays together. That joined array will be the password.
+  // Turn array into a string
+
+  console.log("THE LETTER IS:" + pswdstring);
 }
-//Next steps - 1) Turn console log #18 and #27 (save the values instead of running to the values)
 
-// makeNumber();
+// Create copy to clipboard function
 
-function chooseElement() {
-  getElement = Math.floor(Math.random() * (32 - 2) + 0);
-  // console.log(getElement);
-  console.log(getElement);
-  // return getElement;
-}
-
-function makeSmallLetter() {
-  smallLetter = Math.floor(Math.random() * (25 - 0) + 0);
-  console.log(smallLetter);
-  console.log(lower[smallLetter]);
-}
-
-function makeSymbol() {
-  smallLetter = Math.floor(Math.random() * (25 - 0) + 0);
-  console.log(getSymbol);
-  console.log(symbols[getSymbol]);
-}
-
-chooseElement();
-
-for (var i = 0; i < getElement; i++) {
-  makeLetter();
-  makeNumber();
-  makeSmallLetter();
-  makeSymbol();
-}
-
-//Create the array
-
-var string_password = ["upper", "number", "symbols", "lower"];
-
-// Array Push
-string_password.push();
-
-// Create the prototype to push
-
-// Create an array that will push the values from lines 17 and 26 to the end of an array
-// once we have the 4 requirements,i need to join the arrays together. That joined array will be the password.
-// Turn array into a string
+// function myFunction() {
+//   var copyText = document.getElementById("#copyPswd");
+//   copyText.setSelectionRange(0, 99999);
+//   document.execCommand("copy");
+//   alert("Copied the text: " + copyText.value);
+// }
